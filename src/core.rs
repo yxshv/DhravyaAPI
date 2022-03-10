@@ -113,6 +113,12 @@ pub fn eightball() -> Result<String, Error> {
     )
 }
 
+/// Would you rather
+/// 
+/// # Example
+/// ```
+/// let answer = would_you_rather().unwrap();
+/// ```
 pub fn would_you_rather() -> Result< (String , String) , Error> {
 
     let bytes = request("wyr")?;
