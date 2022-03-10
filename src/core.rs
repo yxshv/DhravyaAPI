@@ -111,5 +111,18 @@ pub fn eightball() -> Result<String, Error> {
     Ok(
         String::from_utf8(bytes.as_ref().to_vec()).unwrap()
     )
+}
 
+pub fn would_you_rather() -> Result< (String , String) , Error> {
+
+    let bytes = request("wyr")?;
+
+    let json : serde_json::Value = serde_json::from_slice(&bytes).unwrap();
+
+    Ok(
+        (
+            json["data"]["Would you rather"][0].as_str().unwrap().to_string(),
+            json["data"]["Would you rather"][1].as_str().unwrap().to_string()
+        )
+    )
 }

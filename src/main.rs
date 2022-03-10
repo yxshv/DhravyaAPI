@@ -1,5 +1,5 @@
-use library::eightball;
+use library::core::*;
 
 fn main() {
-    println!("{}", eightball().unwrap());
+    println!("{:#?}", would_you_rather().unwrap());
 }
