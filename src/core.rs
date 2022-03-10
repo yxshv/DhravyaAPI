@@ -260,3 +260,18 @@ pub fn joke() -> Result<String, Error> {
 
 }
 
+/// Get a compliment
+/// 
+/// # Example
+/// ```
+/// let compliment = compliment().unwrap();
+/// ```
+pub fn compliment() -> Result<String, Error> {
+
+    let bytes = request("compliment?simple=True")?;
+
+    Ok(
+        String::from_utf8(bytes.as_ref().to_vec()).unwrap()
+    )
+
+}
