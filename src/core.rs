@@ -275,3 +275,34 @@ pub fn compliment() -> Result<String, Error> {
     )
 
 }
+
+/// Returns a Never Have I Ever
+/// 
+/// # Example
+/// ```
+/// let neverhaveiever = neverhaveiever().unwrap();
+/// ```
+pub fn neverhaveiever() -> Result<String, Error> {
+
+    let bytes = request("neverhaveiever?simple=True")?;
+
+    Ok(
+        String::from_utf8(bytes.as_ref().to_vec()).unwrap()
+    )
+}
+
+/// Returns a Topic
+/// 
+/// # Example
+/// ```
+/// let topic = topic().unwrap();
+/// ```
+pub fn topic() -> Result<String, Error> {
+
+    let bytes = request("topic?simple=True")?;
+
+    Ok(
+        String::from_utf8(bytes.as_ref().to_vec()).unwrap()
+    )
+
+}
