@@ -133,33 +133,54 @@ pub fn would_you_rather() -> Result< (String , String) , Error> {
     )
 }
 
-#[derive(Debug)]
-pub struct TruthOrDare {
-    pub truth : String,
-    pub dare : String
+/// Get a Truth or Dare
+/// 
+/// # Example
+/// ```
+/// let answer = truth_or_dare().unwrap();
+/// ```
+pub fn truth_or_dare() -> Result< (String, String) , Error> {
+
+    let bytes = request("truthordare")?;
+
+    let json : serde_json::Value = serde_json::from_slice(&bytes).unwrap();
+
+    Ok(
+        (
+            json["data"]["Truth"].as_str().unwrap().to_string(),
+            json["data"]["Dare"].as_str().unwrap().to_string(),
+        )
+    )
 }
 
-impl TruthOrDare {
-    
-    /// Get a Truth and Dare
-    /// 
-    /// # Example
-    /// ```
-    /// let answer = TruthOrDare::get().unwrap();
-    /// ```
-    pub fn get() -> Result<TruthOrDare, Error> {
+/// Get a Truth
+/// 
+/// # Example
+/// ```
+/// let answer = truth().unwrap();
+/// ```
+pub fn truth() -> Result<String , Error> {
 
-        let bytes = request("truthordare")?;
+    let bytes = request("truth?simple=True")?;
 
-        let json : serde_json::Value = serde_json::from_slice(&bytes).unwrap();
+    Ok(
+        String::from_utf8(bytes.as_ref().to_vec()).unwrap()
+    )
+}
 
-        Ok(
-            TruthOrDare{
-                truth : json["data"]["Truth"].as_str().unwrap().to_string(),
-                dare : json["data"]["Dare"].as_str().unwrap().to_string(),
-            }
-        )
-    }
+/// Get a Dare
+/// 
+/// # Example
+/// ```
+/// let answer = dare().unwrap();
+/// ```
+pub fn dare() -> Result<String , Error> {
+
+    let bytes = request("dare?simple=True")?;
+
+    Ok(
+        String::from_utf8(bytes.as_ref().to_vec()).unwrap()
+    )
 }
 
 /// Get a random fact
@@ -220,6 +241,22 @@ impl Trivia {
             }
         )
     }
+
+}
+
+/// Get a joke
+/// 
+/// # Example
+/// ```
+/// let joke = joke().unwrap();
+/// ```
+pub fn joke() -> Result<String, Error> {
+
+    let bytes = request("joke?simple=True")?;
+
+    Ok(
+        String::from_utf8(bytes.as_ref().to_vec()).unwrap()
+    )
 
 }
 
