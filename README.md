@@ -6,10 +6,15 @@ An API wrapper for the Dharvya API
 
 ***
 
+Add the library to the dependencies
+
 ```toml
 [dependencies]
 DhravyaAPI = "0.1.0"
 ```
+
+### Examples
+You can check the [docs](https://docs.rs/DhravyaAPI) for examples.
 
 ### License
 This project is licensed under the MIT license
