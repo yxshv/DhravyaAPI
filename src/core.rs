@@ -34,7 +34,7 @@ impl Image {
     /// 
     /// let file = meme.image.save_on_existing("meme.png");
     /// ```
-    pub fn save_as_existing(&self, path : &str) -> Result<fs::File, io::Error> {
+    pub fn save_on_existing(&self, path : &str) -> Result<fs::File, io::Error> {
         let mut file = fs::File::open(path)?;
         file.write_all(&self.bytes)?;
         Ok(file)

@@ -33,7 +33,7 @@ pub fn request(endpoint : &str) -> Result<bytes::Bytes, Error> {
     }
 }
 
-/// Makes a GET request to a give url 
+/// Makes a GET request to a given url 
 /// 
 /// # Example
 /// ```
@@ -54,14 +54,5 @@ pub fn _request(url : &str) -> Result<bytes::Bytes, Error> {
         } else {
             return Err(Error::HTTPException("Unknown Error".to_string()));
         }
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        let result = 2 + 2;
-        assert_eq!(result, 4);
     }
 }
