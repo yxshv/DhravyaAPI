@@ -10,7 +10,7 @@ Add the library to the dependencies
 
 ```toml
 [dependencies]
-DhravyaAPI = "0.1.0"
+dharvya_api = "0.1.0"
 ```
 
 ### Examples

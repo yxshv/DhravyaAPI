@@ -1,5 +1,7 @@
 [package]
-name = "DhravyaAPI"
+name = "dharvya_api"
+description = "An API wrapper for the Dhravya API"
+license = "MIT"
 version = "0.1.0"
 edition = "2021"
 
