@@ -8,7 +8,7 @@ An API wrapper for the Dharvya API
 
 ```toml
 [dependencies]
-dhravya_api = "0.1.0"
+dhravya_api = "0.1.1"
 ```
   * [Github Repository](https://github.com/kekda-py/DhavyaAPI)
   * [Documentation](https://docs.rs/dhravya_api)
