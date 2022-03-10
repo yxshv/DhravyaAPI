@@ -132,3 +132,32 @@ pub fn would_you_rather() -> Result< (String , String) , Error> {
         )
     )
 }
+
+#[derive(Debug)]
+pub struct TruthOrDare {
+    pub truth : String,
+    pub dare : String
+}
+
+impl TruthOrDare {
+    
+    /// Get a Truth and Dare
+    /// 
+    /// # Example
+    /// ```
+    /// let answer = TruthOrDare::get().unwrap();
+    /// ```
+    pub fn get() -> Result<TruthOrDare, Error> {
+
+        let bytes = request("truthordare")?;
+
+        let json : serde_json::Value = serde_json::from_slice(&bytes).unwrap();
+
+        Ok(
+            TruthOrDare{
+                truth : json["data"]["Truth"].as_str().unwrap().to_string(),
+                dare : json["data"]["Dare"].as_str().unwrap().to_string(),
+            }
+        )
+    }
+}
