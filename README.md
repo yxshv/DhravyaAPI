@@ -6,12 +6,12 @@ An API wrapper for the Dharvya API
 
 ***
 
-Add the library to the dependencies
-
 ```toml
 [dependencies]
 dhravya_api = "0.1.0"
 ```
+  * [Github Repository](https://github.com/kekda-py/DhavyaAPI)
+  * [Documentation](https://docs.rs/dhravya_api)
 
 ### Examples
 You can check the [docs](https://docs.rs/dhravya_api) for examples.
