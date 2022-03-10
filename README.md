@@ -14,7 +14,7 @@ dharvya_api = "0.1.0"
 ```
 
 ### Examples
-You can check the [docs](https://docs.rs/DhravyaAPI) for examples.
+You can check the [docs](https://docs.rs/dhravya_api) for examples.
 
 ### License
 This project is licensed under the MIT license
