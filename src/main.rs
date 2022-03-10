@@ -1,5 +1,6 @@
 use library::core::*;
 
 fn main() {
-    println!("{:#?}", TruthOrDare::get());
+    println!("{:#?}", roast());
+    println!("{:#?}", Trivia::get());
 }

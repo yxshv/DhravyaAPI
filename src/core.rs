@@ -161,3 +161,65 @@ impl TruthOrDare {
         )
     }
 }
+
+/// Get a random fact
+/// 
+/// # Example
+/// ```
+/// let fact = fact().unwrap();
+/// ```
+pub fn fact() -> Result<String, Error> {
+
+    let bytes = request("fact?simple=True")?;
+
+    Ok(
+        String::from_utf8(bytes.as_ref().to_vec()).unwrap()
+    )
+
+}
+
+/// Roast someone
+/// 
+/// # Example
+/// ```
+/// let roast = roast().unwrap();
+/// ```
+pub fn roast() -> Result<String, Error> {
+
+    let bytes = request("roast?simple=True")?;
+
+    Ok(
+        String::from_utf8(bytes.as_ref().to_vec()).unwrap()
+    )
+
+}
+
+#[derive(Debug)]
+pub struct Trivia {
+    pub ques : String,
+    pub ans : String
+}
+
+impl Trivia {
+    /// Get a trivia question with its answer
+    /// 
+    /// # Example
+    /// ```
+    /// let trivia = Trivia::get().unwrap();
+    /// ```
+    pub fn get() -> Result<Trivia, Error> {
+
+        let bytes = request("trivia")?;
+    
+        let json : serde_json::Value = serde_json::from_slice(&bytes).unwrap();
+
+        Ok(
+            Trivia {
+                ques : json["data"]["Question"].as_str().unwrap().to_string(),
+                ans : json["data"]["Answer"].as_str().unwrap().to_string()
+            }
+        )
+    }
+
+}
+
