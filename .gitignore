@@ -1,1 +1,3 @@
 /target
+library/src/main.rs
+Cargo.lock

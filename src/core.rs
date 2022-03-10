@@ -97,3 +97,19 @@ pub fn get_random_meme() -> Result<Image, Error> {
         }
     )
 }
+
+/// Get an answer from the magic 8ball
+/// 
+/// # Example
+/// ```
+/// let answer = eighball().unwrap();
+/// ```  
+pub fn eightball() -> Result<String, Error> {
+
+    let bytes = request("8ball?simple=True")?;
+
+    Ok(
+        String::from_utf8(bytes.as_ref().to_vec()).unwrap()
+    )
+
+}
